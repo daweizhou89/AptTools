@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AptTools.iml" filepath="$PROJECT_DIR$/AptTools.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/encrypt-constant/encrypt-constant.iml" filepath="$PROJECT_DIR$/encrypt-constant/encrypt-constant.iml" />
+      <module fileurl="file://$PROJECT_DIR$/encrypt-constant-annotation/encrypt-constant-annotation.iml" filepath="$PROJECT_DIR$/encrypt-constant-annotation/encrypt-constant-annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/encrypt-constant-compiler/encrypt-constant-compiler.iml" filepath="$PROJECT_DIR$/encrypt-constant-compiler/encrypt-constant-compiler.iml" />
+    </modules>
+  </component>
+</project>
