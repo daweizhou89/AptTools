@@ -3,13 +3,22 @@
 
 ## 加密字符串常量('encrypt-constant')
 
-### Gradle 配置:
+### Gradle 配置
+添加maven仓库配置到根build.gradle
+```
+allprojects {
+    repositories {
+        jcenter()
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+添加依赖到应用的build.gradle
 ```
 dependencies {
-
     compile 'com.github.daweizhou89:AptTools:encrypt-constant:0.1.0'
     annotationProcessor 'com.github.daweizhou89:AptTools:encrypt-constant-compiler:0.1.0'
-
 }
 ```
 
