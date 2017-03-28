@@ -1,23 +1,20 @@
 # AptTools
 使用android-apt开发的工具库
 
-## 加密字符串常量
+## 加密字符串常量('encrypt-constant')
 
-1. 复制 "encrypt-constant", "encrypt-constant-annotation", "encrypt-constant-compiler" 到工程目录
-
-2. 分别修改加密和解密算法：
-1) "encrypt-constant-compiler" 下 EncryptUtil.encodeString(String value, String key)
-2) "encrypt-constant" 下 DecryptUtil.decodeString(String value, String key)
-
-3. Gradle 配置:
+### Gradle 配置:
 ```
 dependencies {
-    compile project(':encrypt-constant')
-    apt project(':encrypt-constant-compiler')
+
+    compile 'com.github.daweizhou89:AptTools:encrypt-constant:0.1.0'
+    annotationProcessor 'com.github.daweizhou89:AptTools:encrypt-constant-compiler:0.1.0'
+
 }
 ```
 
-4. 对class使用注解@EncryptConstant，生成含有加密常量后的class（带前缀Encrypt），例如：
+### 使用方式
+1. 对class使用注解@EncryptConstant，生成含有加密常量后的class（带前缀Encrypt），例如：
 
 ```java
 @EncryptConstant
@@ -37,4 +34,4 @@ public final class EncryptConstant {
 }
 ```
 
-5. 使用EncryptConstant代替Constant
+2. 使用EncryptConstant代替Constant
