@@ -29,3 +29,6 @@ dependencies {
 
     compile project(':encrypt-constant-annotation')
 }
+
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.daweizhou89'

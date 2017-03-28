@@ -53,6 +53,7 @@ public class EncryptConstantCompiler extends AbstractProcessor {
             return;
         }
         TypeElement typeElement = (TypeElement) element;
+        final String encryptKey = typeElement.getAnnotation(EncryptConstant.class).key();
         // Get All Members
         List<? extends Element> members = elementUtils.getAllMembers(typeElement);
         List<FieldSpec> fieldSpecList = new ArrayList<>();
@@ -73,9 +74,9 @@ public class EncryptConstantCompiler extends AbstractProcessor {
                 continue;
             }
             final String stringValue = (String) constantValue;
-            final String encryptStringValue = EncryptUtil.encodeString(stringValue);
+            final String encryptStringValue = EncryptUtil.encodeString(stringValue, encryptKey);
             FieldSpec fieldSpec = FieldSpec.builder(String.class, variableElement.getSimpleName().toString(), Modifier.PUBLIC, Modifier.FINAL, Modifier.STATIC)
-                    .initializer("$T.decodeString($S)", ClassName.get("com.github.daweizhou89.encryptconstant", "DecryptUtil"), encryptStringValue)
+                    .initializer("$T.decodeString($S, $S)", ClassName.get("com.github.daweizhou89.encryptconstant", "DecryptUtil"), encryptStringValue, encryptKey)
                     .build();
             fieldSpecList.add(fieldSpec);
         }
