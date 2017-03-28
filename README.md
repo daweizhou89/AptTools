@@ -6,11 +6,11 @@
 1. 复制 "encrypt-constant", "encrypt-constant-annotation", "encrypt-constant-compiler" 到工程目录
 
 2. 分别修改加密和解密算法：
-1) "encrypt-constant-compiler" 下 EncryptUtil.encodeString(String value)
-2) "encrypt-constant" 下 DecryptUtil.decodeString(String value)
+1) "encrypt-constant-compiler" 下 EncryptUtil.encodeString(String value, String key)
+2) "encrypt-constant" 下 DecryptUtil.decodeString(String value, String key)
 
 3. Gradle 配置:
-```groovy
+```
 dependencies {
     compile project(':encrypt-constant')
     apt project(':encrypt-constant-compiler')
@@ -31,9 +31,9 @@ public class Constant {
 
 ```java
 public final class EncryptConstant {
-  public static final String MY_EMAIL = DecryptUtil.decodeString("\u0003\u000b\u0007\u000f\u0015\u0015\u0015\n"
-      + "\\\u0002\u0007\u0011\u0003\u000f\u001c\u000e\t\u0013^_&\u0001\u000b\u0007\u000f\n"
-      + "H\u0005\t\u000b");
+  public static final String MY_EMAIL = DecryptUtil.decodeString("\u000f\u0004\u000e\u000e\f\u0003\u0003\n"
+        + "\fS\\9\f\b\u0018\u0002\tW\b\n"
+        + "\u0014", "key");
 }
 ```
 
